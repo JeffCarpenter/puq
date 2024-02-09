@@ -127,7 +127,7 @@ class PUQUncertaintyRegion:
             upper = all_upper[i:i+step].to(self.device)
 
             # Project ground truths
-            ground_truths = dataloader.next().flatten(1).to(self.device)
+            ground_truths = next(dataloader).flatten(1).to(self.device)
 
             ground_truths_minus_mean = ground_truths - mu
             projected_ground_truths_minus_mean = torch.bmm(
