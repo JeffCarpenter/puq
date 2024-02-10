@@ -5,7 +5,7 @@ Correlation for Image Restoration Problems](https://arxiv.org/abs/2305.10124) (*
 This repository also provides an official implementation of our paper: [Volume-Oriented Uncertainty for Inverse Problems](https://openreview.net/pdf?id=ijSTOcngKs) (**NeurIPS 2023 Workshop on Deep Learning and Inverse Problems**).
 
 **Abstract**:
-Uncertainty quantification for inverse problems in imaging has drawn much attention lately. Existing approaches towards this task define uncertainty regions based on probable values per pixel, while ignoring spatial correlations within the image, resulting in an exaggerated volume of uncertainty. In this paper, we propose PUQ (Principal Uncertainty Quantification) -- a novel definition and corresponding analysis of uncertainty regions that takes into account spatial relationships within the image, thus providing reduced volume regions. Using recent advancements in stochastic generative models, we derive uncertainty intervals around principal components of the empirical posterior distribution, forming an ambiguity region that guarantees the inclusion of true unseen values with a user confidence probability. To improve computational efficiency and interpretability, we also guarantee the recovery of true unseen values using only a few principal directions, resulting in ultimately more informative uncertainty regions. Our approach is verified through experiments on image colorization, super-resolution, and inpainting; its effectiveness is shown through comparison to baseline methods, demonstrating significantly tighter uncertainty regions.
+Uncertainty quantification for inverse problems in imaging has drawn much attention lately. Existing approaches towards this task define uncertainty regions based on probable values per pixel, while ignoring spatial correlations within the image, resulting in an exaggerated volume of uncertainty. In this paper, the authors propose PUQ (Principal Uncertainty Quantification) -- a novel definition and corresponding analysis of uncertainty regions that takes into account spatial relationships within the image, thus providing reduced volume regions. Using recent advancements in stochastic generative models, they derive uncertainty intervals around principal components of the empirical posterior distribution, forming an ambiguity region that guarantees the inclusion of true unseen values with a user confidence probability. To improve computational efficiency and interpretability, they also guarantee the recovery of true unseen values using only a few principal directions, resulting in ultimately more informative uncertainty regions. Our approach is verified through experiments on image colorization, super-resolution, and inpainting; its effectiveness is shown through comparison to baseline methods, demonstrating significantly tighter uncertainty regions.
 
 <p align="center">
   <img src="images/demo.gif" />
@@ -14,9 +14,9 @@ Uncertainty quantification for inverse problems in imaging has drawn much attent
 *Animated figure illustrates uncertainty regions produced by RDA-PUQ*.
 
 **TLDR**:
-Given an input image, we aim to predict a linear space called the uncertainty region.
+Given an input image, PUQ estimates a linear space called the uncertainty region.
 This space is constructed using adaptively-assigned linear uncertainty axes that take into account the spatial dependencies within the image. The uncertainty region is defined by lower and upper bounds on projection values along these axes.
-Our method guarantees, by design, that the uncertainty region produced will highly likely contain the unknown ground truth image. Additionally, the linear subspace is guaranteed to restore the ground truth image with a small error while a small number of axes are capable of capturing the majority of the uncertainty within the image.
+The method guarantees, by design, that the uncertainty region produced will highly likely contain the unknown ground truth image. Additionally, the linear subspace is guaranteed to restore the ground truth image with a small error while a small number of axes are capable of capturing the majority of the uncertainty within the image.
 
 ## Citation
 
@@ -31,9 +31,9 @@ If you find our paper/code helpful, please cite our paper:
 
 ## Data
 
-Currently, we make the underlying assumption that a diffusion model has been trained and utilized to sample solutions for any selected image restoration task.
-For your convenience, we provide an illustrative instance of an [example data folder](puq/data/example) comprising 8 images, each accompanied by 10 samples specifically related to the image colorization task.
-We adopt the following prescribed structure:
+The authors make the underlying assumption that a diffusion model has been trained and utilized to sample solutions for any selected image restoration task.
+For your convenience, they illustrate instance of an [example data folder](puq/data/example) comprising 8 images, each accompanied by 10 samples specifically related to the image colorization task.
+They adopt this directory tree structure:
 
     ├── data
     │   ├── ground_truths
